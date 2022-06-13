@@ -1,0 +1,60 @@
+import React, { useState } from 'react';
+import styled from 'styled-components';
+
+function Style ({ style, curStyle, changeStyle }) {
+
+  const thumbnails = style.reduce((imagesArray, stylei) => {
+    imagesArray.push(stylei['photos'][0]['thumbnail_url']);
+    return imagesArray;
+  }, []);
+
+  return (
+    <StyleContainer>
+      <StyleBar><a>STYLE ></a> <a>{style[curStyle]['name']}</a> </StyleBar>
+      <StyleDisContainer>
+      {thumbnails.map((link, index) => {
+        if (index === curStyle) {
+          return  <StyleDisplay key={ index }><StyleImg src = {link}/><StyleCheck> &#10004;</StyleCheck></StyleDisplay>;
+        } else {
+          return  <StyleDisplay key={ index } onClick = {() => changeStyle(index)} ><StyleImg src = {link}/></StyleDisplay>;
+        }
+      })}
+      </StyleDisContainer>
+    </StyleContainer>);
+}
+export default Style;
+
+const StyleContainer = styled.div`
+  margin-top: 20px;
+  height: 280px;
+`;
+
+const StyleBar = styled.div`
+  font-weight: bold;
+  font-size: 20px;
+`;
+
+const StyleDisContainer = styled.div`
+  float: left;
+  height: 250px;
+`;
+
+const StyleDisplay = styled.div`
+  margin-top: 20px;
+  width: 25%;
+  display: inline-flex;
+`;
+
+const StyleImg = styled.img`
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  padding: 0px 5px;
+`;
+
+const StyleCheck = styled.div`
+  position: absolute;
+  margin-left: 70px;
+  font-size: 25px;
+`;
