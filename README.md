@@ -1,14 +1,17 @@
 # Backend System Desigin 
 
-## **Description**
+## Description
 
-I created the backend of product overveiw section with express and database with postgres.  All read queries used by my API will run in under 50ms.
-Applied local stress test with k6 on my service in development (on my laptop) with the number of request per second: 1, 10, 100, 1K and the fail_rates are all unders 0.2%
-
-## **Installation**
-**_npm install_**: install necessary dependencies for this project.<br>
-**_npm start_**: run the client server.<br>
-**_npx test_**: run the mocha/chakram testing files.<br>
-**_brew install k6_** : install k6 local stress test.<br>
+* Redesigned and scaled the backend of online retailer to handle 1M products with 10k RPS
+* Designed and updated database schema for products information, product styles, products inforamtion, product photos and skus and updated tabels with indexing which improved 200% of RPS.
+* Optimized PostgreSQL queries with aggregate functions and decreased queries timing to 30ms from 86ms.
+* Achieved about 1000% RPS increment by identifying bottlenecks with k6 and loader.io, and horizontal scaling the backend with Nginx, catching and 3 AWS EC2 instances 
 
 
+## Testing
+Local Test: K6, chakram
+Deployed: Loader.io
+
+## Whole System Design
+
+![Screen Shot 2022-06-23 at 8 55 39 PM](https://user-images.githubusercontent.com/78040879/175459187-cf6d19c9-6262-416e-bdfc-5dc44decc8b1.png)
