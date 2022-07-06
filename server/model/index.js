@@ -1,4 +1,2 @@
-const modelOverview=require('./overview.js');
-
-
-exports.model=modelOverview;
+const modelOverview = require('./overview.js');
+exports.model = modelOverview;

@@ -10,10 +10,10 @@ const pool=new Pool({
 })
 
 pool.connect(function (err) {
-  if(err) {
+  if (err) {
     throw err;
   }
   console.log('connected!')
 });
 
-module.exports=pool;
+module.exports = pool;
